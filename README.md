@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Project with Docker and Prisma
 
-## Getting Started
+Este é um projeto Next.js configurado para rodar em um ambiente Docker, utilizando Prisma como ORM. Este README fornece instruções detalhadas para instalar e executar o projeto.
 
-First, run the development server:
+## 🛠️ Tecnologias
+
+- [Next.js](https://nextjs.org/)
+- [Docker](https://www.docker.com/)
+- [Prisma](https://www.prisma.io/)
+
+---
+
+## 📝 Pré-requisitos
+
+Certifique-se de ter as ferramentas abaixo instaladas no seu sistema:
+
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/)
+- [Node.js](https://nodejs.org/) e [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
+
+---
+
+## 🚀 Configuração do Projeto
+
+### 1. Clone o Repositório
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/nicolasestanislau/e-paper.git
+cd e-paper
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Instale as Dependências
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Configuração do Banco de Dados
 
-## Learn More
+1. Crie um arquivo .env na raiz do projeto com base no .env.example.
+2. Configure a variável de ambiente DATABASE_URL com sua conexão ao banco de dados.
 
-To learn more about Next.js, take a look at the following resources:
+### 4. Configure o Prisma
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npx prisma migrate dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Isso aplicará as migrações no banco de dados e gerará os arquivos Prisma Client.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🐳 Executando com Docker
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 1. Build da Imagem Docker
+
+```bash
+docker-compose build
+```
+
+### 2. Subindo o Contêiner
+
+```bash
+docker-compose up
+```
+
+O servidor estará disponível em http://localhost:3000.
+
+---
+
+## 📊 Acessando o Prisma Studio
+
+Com o contêiner rodando, execute o comando abaixo para abrir o Prisma Studio:
+
+```bash
+npx prisma studio
+```
+
+A interface estará disponível em http://localhost:5555 para visualizar e gerenciar os dados.
+
+---
+
+## 📂 Estrutura do Projeto
+
+```bash
+/prisma       - Schemas do Prisma
+/src          - Código fonte da aplicação
+Dockerfile    - Configuração do Docker
+docker-compose.yml - Configuração do Docker Compose
+```
+
+---
+
+## 🛠️ Comandos Úteis
+
+- Instalar Dependências: npm install ou yarn install
+- Rodar em Ambiente de Desenvolvimento: npm run dev ou yarn dev
+- Gerar Cliente Prisma: npx prisma generate
+- Prisma Studio: npx prisma studio
+
+---
+
+## 📜 Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
