@@ -32,7 +32,7 @@ cd e-paper
 ### 2. Instale as Dependências
 
 ```bash
-npm install
+npm install --force
 ```
 
 ### 3. Configuração do Banco de Dados

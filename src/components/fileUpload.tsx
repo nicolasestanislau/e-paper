@@ -20,7 +20,7 @@ export function FileUpload({
   onDeleteFile: () => void;
 }) {
   const [file, setFile] = useState<File | null>(null);
-  const [progress, setProgress] = useState(100);
+  const progress = 100;
 
   const onDrop = (acceptedFiles: File[]) => {
     console.log("ondrop");
