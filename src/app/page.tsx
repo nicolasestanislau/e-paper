@@ -15,6 +15,7 @@ import DocumentTable from "@/components/DocumentTable";
 import { NavUser } from "@/components/nav-user";
 import Image from "next/image";
 import logoPic from "../../public/assets/logo.png";
+import logoPicGrey from "../../public/assets/logoGrey.png";
 import solutionsPic from "../../public/assets/solutions.png";
 import { Bell } from "lucide-react";
 const data = {
@@ -70,6 +71,24 @@ export default function Home() {
         <div className="preview flex flex-col min-h-[350px] w-full justify-center p-10 items-center overflow-auto">
           <DocumentTable />
         </div>
+        <footer
+          className="flex justify-center items-center"
+          style={{
+            position: "absolute",
+            bottom: "0px",
+            width: "inherit",
+          }}
+        >
+          <Image
+            alt="Picture of the logo"
+            src={logoPicGrey}
+            width={100}
+            height={100}
+          />
+          <span style={{ color: "#6B7280", fontSize: "14px" }}>
+            Copyright © 2024 e-paper
+          </span>
+        </footer>
       </SidebarInset>
     </SidebarProvider>
   );
